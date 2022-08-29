@@ -6,8 +6,8 @@ from .common.train import train
 from .common.optim import optim
 from .common.data.bert_dataset import dataloader, tokenization
 
-vocab_file = "/dataset/libai_dataset/bert-base-chinese-vocab.txt"
-data_prefix = "/dataset/libai_dataset/loss_compara_content_sentence"
+vocab_file = "/path/to/bert-base-chinese-vocab.txt"
+data_prefix = "/path/to/loss_compara_content_sentence"
 
 tokenization.tokenizer.vocab_file = vocab_file
 dataloader.train.dataset[0].data_prefix = data_prefix
@@ -32,8 +32,6 @@ for ds in dataloader.train.dataset:
 train.evaluation.evaluator = LazyCall(PPLEvaluator)()
 
 # train.output_dir = "output/bert_output"
-
-
 train.output_dir = "output/bert_output_loss_compare"
 train.load_weight = "output/bert_output/model_final/"
 train.rdma_enabled = False
