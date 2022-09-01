@@ -31,3 +31,5 @@ train.dist.pipeline_parallel_size=2
 train.evaluation.enabled = False
 ```
 进行100个iter的对齐实验
+
+- 相关测试结果见 https://github.com/Oneflow-Inc/OneTeam/issues/1603
