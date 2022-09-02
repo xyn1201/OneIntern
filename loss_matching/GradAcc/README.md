@@ -37,6 +37,9 @@ conda create -n master python=3.8 && conda activate master && python3-m pip inst
     bash loss.sh
     ```
 - 在loss_txt路径下保存有loss的数据，curve路径下有对齐的png图像，test_logs_loss路径下有训练日志
+- 整理曲线图
+把曲线图按模型上传到oss上，再拷贝一份到本地，修改`compose.py`中的 IMAGES_PATH IMAGE_SAVE_PATH 和 IMAGE_COLUMN，并运行 `python3 compose.py`
+
 - 注意：每次完整测试之前检查几个文件，libai/engine/trainer.py, libai/engine/default.py, draw_loss.py
 
 ## 测试结果
