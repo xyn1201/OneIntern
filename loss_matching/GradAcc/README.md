@@ -4,13 +4,13 @@
 
 ```bash
 mkdir loss_matching && cd loss_matching
-git clone git@github.com:Oneflow-Inc/libai.git
+git clone git@github.com:Oneflow-Inc/libai.git && 在libai/engine/trainer.py里添加显存输出代码
 git clone git@github.com:Oneflow-Inc/models.git
 cd libai
 cd tools && 拷贝 args_libai_bert_init.sh args_libai_bert_loss.sh args_libai_gpt2_init.sh args_libai_gpt2_loss.sh args_libai_t5_init.sh args_libai_t5_loss.sh
 cd configs && 拷贝 bert_nl24_nah16_hs1024.py gpt2_nl24_nah16_hs1024.py t5_nl12_nah12_hs768.py
 cd .. && 拷贝 init.sh loss.sh draw_loss.py
-cd models/Vision/classification/image/resnet50
+cd models/Vision/classification/image/resnet50 && git checkout dev_test_resnet50_accuracy
 cd examples && 拷贝 OneAutoTest/ResNet50/args_train_ddp_graph.sh
 cd .. && 拷贝 resnet50_train.sh
 
@@ -37,7 +37,7 @@ conda create -n master python=3.8 && conda activate master && python3-m pip inst
     ```
 - 运行
     ```bash
-    bash loss.sh
+    bash loss.sh "c4ce8fb"
     bash resnet50_train.sh
     ```
 - 在loss_txt路径下保存有loss的数据，curve路径下有对齐的png图像，test_logs_loss路径下有训练日志

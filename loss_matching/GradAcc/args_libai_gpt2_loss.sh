@@ -19,10 +19,11 @@ USE_FP16=${8:-true}
 ACTIVATION_CHECKPOINT=${9:-false}
 MICRO_BATCH_SIZE=${10:-4}
 GLOBAL_BATCH_SIZE=${11:-4}
-NUM_LAYER=${12:-24}
-RUN_COMMIT=${13:-"master"}
-TRAIN_ITERS=${14:-100}
-LOG_PERIOD=${15:-20}
+ACC_COMMIT=${12:-"c4ce8fb"}
+NUM_LAYER=${13:-24}
+RUN_COMMIT=${14:-"master"}
+TRAIN_ITERS=${15:-100}
+LOG_PERIOD=${16:-20}
 
 TRAN_MODEL="LibAI_gpt2"
 WEIGHT_FOLDER=test_logs_init/${RUN_COMMIT}/${NNODES}n${GPUS_PER_NODE}g
@@ -42,9 +43,9 @@ FILENAME=${TRAN_MODEL}_nl${NUM_LAYER}_nah16_hs1024_${AMP_OR}_ac${ACTIVATION_CHEC
 WEIGHT_FILENAME=$WEIGHT_FOLDER/${FILENAME}/model_final/
 
 
-for TEST_COMMIT in "master" "c4ce8fb"
+for TEST_COMMIT in "master" ${ACC_COMMIT}
 do
-if [ ${TEST_COMMIT} == "c4ce8fb" ]; then
+if [ ${TEST_COMMIT} == ${ACC_COMMIT} ]; then
     source /home/xuyongning/miniconda3/bin/activate acc
     sed -i "s#loss1.txt#loss_txt/${FILENAME}_loss_${TEST_COMMIT}.txt#g" draw_loss.py
     sed -i "s#loss1#${FILENAME}_loss_${TEST_COMMIT}#g" draw_loss.py
@@ -97,9 +98,9 @@ sed -i "s#loss_curve.png#curve/loss_curve_${FILENAME}_${TEST_COMMIT}.png#g" draw
 python3 draw_loss.py
 sed -i "s#curve/loss_curve_${FILENAME}_${TEST_COMMIT}.png#loss_curve.png#g" draw_loss.py
 
-for TEST_COMMIT in "master" "c4ce8fb"
+for TEST_COMMIT in "master" ${ACC_COMMIT}
 do
-if [ ${TEST_COMMIT} == "c4ce8fb" ]; then
+if [ ${TEST_COMMIT} == ${ACC_COMMIT} ]; then
     sed -i "s#loss_txt/${FILENAME}_loss_${TEST_COMMIT}.txt#loss1.txt#g" draw_loss.py
     sed -i "s#${FILENAME}_loss_${TEST_COMMIT}#loss1#g" draw_loss.py
 else
@@ -107,4 +108,3 @@ else
     sed -i "s#${FILENAME}_loss_${TEST_COMMIT}#loss2#g" draw_loss.py
 fi
 done
-
