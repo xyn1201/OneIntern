@@ -11,7 +11,7 @@ cd tools && 拷贝 args_libai_bert_init.sh args_libai_bert_loss.sh args_libai_gp
 cd configs && 拷贝 bert_nl24_nah16_hs1024.py gpt2_nl24_nah16_hs1024.py t5_nl12_nah12_hs768.py
 cd .. && 拷贝 init.sh loss.sh draw_loss.py
 cd models/Vision/classification/image/resnet50 && git checkout dev_test_resnet50_accuracy
-cd examples && 拷贝 OneAutoTest/ResNet50/args_train_ddp_graph.sh
+cd examples && 拷贝 args_train_ddp_graph_acc.sh
 cd .. && 拷贝 resnet50_train.sh
 
 conda create -n acc python=3.8 && conda activate acc && python3 -m pip install https://oneflow-staging.oss-cn-beijing.aliyuncs.com/canary/commit/c4ce8fbe451a59f41c88ebe6ec0f1abfb8210a4c/cu112/oneflow-0.8.1%2Bcu112.git.c4ce8fbe4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
