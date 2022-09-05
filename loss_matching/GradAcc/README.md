@@ -26,6 +26,13 @@ conda create -n master python=3.8 && conda activate master && python3-m pip inst
 - 在test_logs_init路径下会保存初始化模型
 
 ### 跑loss对齐的一键测试
+- 注意，如果只跑acc分支的测试，不跑master对照组，则需要将`args_libai_bert_loss.sh` L95的done删掉，并在 https://github.com/xyn1201/OneIntern/blob/f3b85a759ec64bb277297114a70673dbb7f2e972/loss_matching/GradAcc/args_libai_bert_loss.sh#L57 加上
+    ```python
+    done
+
+    TEST_COMMIT=${ACC_COMMIT}
+    ```
+    `args_libai_gpt2_loss.sh` 和 `args_libai_t5_loss.sh` 做相同修改
 - 显存设置为iter=99时输出，注释掉checkpointer
 - 把libai/data/build.py中persistent_workers=True if num_workers > 0 else False,全部注释掉, 必要时把所有的shuffle都设置为False
 - 在libai/engine/trainer.py下加保存loss的语句

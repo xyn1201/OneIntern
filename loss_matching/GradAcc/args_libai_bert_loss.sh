@@ -62,6 +62,8 @@ LOG_FOLDER=test_logs_loss/${TEST_COMMIT}/${NNODES}n${GPUS_PER_NODE}g
 LOG_FILENAME=$LOG_FOLDER/${FILENAME}_${RUN_TIME}
 mkdir -p $LOG_FILENAME
 
+python3 -m oneflow --doctor
+
 # nsys
 #nsys profile --stats true --output ${LOG_FILENAME} \
 python3 -m oneflow.distributed.launch \
