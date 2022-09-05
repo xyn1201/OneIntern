@@ -1,3 +1,5 @@
+pip install -e .
+
 ACC_COMMIT=${1:-"c4ce8fb"}
 
 ## bert

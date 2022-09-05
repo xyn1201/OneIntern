@@ -1,3 +1,5 @@
+pip install -e .
+
 ## bert
 #  1n1g acc4        bert_nl24_nah16_hs1024_fp16_actrue_mp1_pp1_mb32_gb128_1n1g
 bash tools/args_libai_bert_init.sh configs/bert_nl24_nah16_hs1024.py 1 1 0 127.0.0.1 1 1 true true 32 128
