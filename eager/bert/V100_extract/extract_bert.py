@@ -115,7 +115,7 @@ def extract_result(args, extract_func):
         ]
         throughput_final_result_dict[case_header][
             "libai_yaml"
-        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/EagerTest/cloud_v100/{}/{}/config.yaml".format(args.oneflow_commit,
+        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/EagerTest/cloud_v100/eager/{}/{}/config.yaml".format(args.oneflow_commit,
             "/".join(tmp_file_name[-3:-1])
         )
         throughput_final_result_dict[case_header]["libai_samples"] = libai_result_dict[
@@ -123,7 +123,7 @@ def extract_result(args, extract_func):
         ]
         throughput_final_result_dict[case_header][
             "libai_log"
-        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/EagerTest/cloud_v100/{}/{}".format(args.oneflow_commit,
+        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/EagerTest/cloud_v100/eager/{}/{}".format(args.oneflow_commit,
             "/".join(tmp_file_name[-3:])
         )
         throughput_final_result_dict[case_header]["megatron_memory"] = 0
