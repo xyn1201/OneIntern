@@ -57,6 +57,10 @@ conda create -n master python=3.8 && conda activate master && python3-m pip inst
 把test_logs_loss路径下的数据上传至oss，修改`extract_libai_libai.py`中的oss路径名，运行 `python extract_libai_libai.py --compare-log ./test_logs_loss/master/ --test-log ./test_logs_loss/c4ce8fb/`
 - 注意：每次完整测试之前检查几个文件，libai/engine/trainer.py, libai/engine/default.py, draw_loss.py
 
+### 跑发版测试
+- 拷贝 args_libai_bert.sh 和 args_libai_gpt2.sh
+- 运行 `bash case.sh "3d5e919" # 替换为测试commit`
+
 ## 测试结果
 
 https://github.com/Oneflow-Inc/OneTeam/issues/1670
