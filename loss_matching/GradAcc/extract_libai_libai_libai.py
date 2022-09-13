@@ -105,7 +105,7 @@ def extract_result(args, extract_func):
         ]
         throughput_final_result_dict[case_header][
             "libai_yaml"
-        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/loss_matching/GradAcc/oneflow-28/PR/test_logs_loss/3d5e919/{}/config.yaml".format(
+        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/loss_matching/GradAcc/oneflow-28/PR/test_logs/3d5e919/{}/config.yaml".format(
             "/".join(tmp_file_name[-3:-1])
         )
         throughput_final_result_dict[case_header]["libai_samples"] = libai_result_dict[
@@ -113,7 +113,7 @@ def extract_result(args, extract_func):
         ]
         throughput_final_result_dict[case_header][
             "libai_log"
-        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/loss_matching/GradAcc/oneflow-28/PR/test_logs_loss/3d5e919/{}".format(
+        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/loss_matching/GradAcc/oneflow-28/PR/test_logs/3d5e919/{}".format(
             "/".join(tmp_file_name[-3:])
         )
 
@@ -131,7 +131,7 @@ def extract_result(args, extract_func):
         ]
         throughput_final_result_dict[case_header][
             "libai_yaml_compare"
-        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/loss_matching/GradAcc/oneflow-28/PR/test_logs_loss/master/{}/config.yaml".format(
+        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/loss_matching/GradAcc/oneflow-28/PR/test_logs/master/{}/config.yaml".format(
             "/".join(tmp_file_name[-3:-1])
         )
         throughput_final_result_dict[case_header]["libai_samples_compare"] = libai_result_dict[
@@ -139,7 +139,7 @@ def extract_result(args, extract_func):
         ]
         throughput_final_result_dict[case_header][
             "libai_log_compare"
-        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/loss_matching/GradAcc/oneflow-28/PR/test_logs_loss/master/{}".format(
+        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/loss_matching/GradAcc/oneflow-28/PR/test_logs/master/{}".format(
             "/".join(tmp_file_name[-3:])
         )
 
@@ -157,7 +157,7 @@ def extract_result(args, extract_func):
         ]
         throughput_final_result_dict[case_header][
             "libai_yaml_faban"
-        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/loss_matching/GradAcc/oneflow-28/PR/test_logs_loss/master/{}/config.yaml".format(
+        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/loss_matching/GradAcc/oneflow-28/PR/test_logs/faban/{}/config.yaml".format(
             "/".join(tmp_file_name[-3:-1])
         )
         throughput_final_result_dict[case_header]["libai_samples_faban"] = libai_result_dict[
@@ -165,7 +165,7 @@ def extract_result(args, extract_func):
         ]
         throughput_final_result_dict[case_header][
             "libai_log_faban"
-        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/loss_matching/GradAcc/oneflow-28/PR/test_logs_loss/master/{}".format(
+        ] = "https://oneflow-test.oss-cn-beijing.aliyuncs.com/loss_matching/GradAcc/oneflow-28/PR/test_logs/faban/{}".format(
             "/".join(tmp_file_name[-3:])
         )
 
