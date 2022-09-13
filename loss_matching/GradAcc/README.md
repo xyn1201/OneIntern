@@ -59,7 +59,13 @@ conda create -n master python=3.8 && conda activate master && python3-m pip inst
 
 ### 跑发版测试
 - 拷贝 args_libai_bert.sh 和 args_libai_gpt2.sh
-- 运行 `bash case.sh "3d5e919" # 替换为测试commit`
+- 运行 
+    ```bash 
+    case.sh "3d5e919"
+    case.sh "master"
+    case.sh "faban"
+    python extract_libai_libai_libai.py --faban-log ./test_logs/faban/ --compare-log ./test_logs/master/ --test-log ./test_logs/3d5e919/ --oneflow-commit "3d5e919"
+    ```
 
 ## 测试结果
 
