@@ -29,5 +29,3 @@ train.input_placement_device = "cpu"
 
 train.evaluation.enabled = False
 train.evaluation.eval_iter = 30
-
-train.rdma_enabled = False

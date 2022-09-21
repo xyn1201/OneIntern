@@ -48,5 +48,3 @@ train.evaluation.evaluator = LazyCall(PPLEvaluator)()
 
 train.evaluation.enabled = False
 train.evaluation.eval_iter = 30
-
-train.rdma_enabled = False
