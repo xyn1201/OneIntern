@@ -63,6 +63,7 @@ bash tools/args_libai_gpt2.sh configs/gpt2_nl24_nah16_hs1024.py 1 4 0 127.0.0.1 
 bash tools/args_libai_gpt2.sh configs/gpt2_nl24_nah16_hs1024.py 1 4 0 127.0.0.1 1 2 true true 4 64 true
 
 
+sed -i 's/flow.boxing.nccl.enable_use_compute_stream(True)/flow.boxing.nccl.enable_use_compute_stream(False)/g' libai/models/utils/graph_base.py
 
 ## t5  开Acc
 
@@ -94,6 +95,7 @@ bash tools/args_libai_t5.sh configs/t5_nl12_nah12_hs768.py 1 4 0 127.0.0.1 2 2 t
 bash tools/args_libai_t5.sh configs/t5_nl12_nah12_hs768.py 1 4 0 127.0.0.1 1 2 true true 8 128
 bash tools/args_libai_t5.sh configs/t5_nl12_nah12_hs768.py 1 4 0 127.0.0.1 1 2 true true 8 128 true
 
+sed -i 's/flow.boxing.nccl.enable_use_compute_stream(False)/flow.boxing.nccl.enable_use_compute_stream(True)/g' libai/models/utils/graph_base.py
 
 
 ## vit  开Acc
