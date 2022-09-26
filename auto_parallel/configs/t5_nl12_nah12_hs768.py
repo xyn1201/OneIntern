@@ -11,8 +11,8 @@ from .common.data.t5_dataset import dataloader, tokenization
 
 from .common.models.graph import graph
 
-vocab_file = "/data/dataset/libai_dataset/bert-base-chinese-vocab.txt"
-data_prefix = "/data/dataset/libai_dataset/loss_compara_content_sentence"
+vocab_file = "/ssd/dataset/libai_dataset/bert-base-chinese-vocab.txt"
+data_prefix = "/ssd/dataset/libai_dataset/loss_compara_content_sentence"
 
 tokenization.tokenizer.vocab_file = vocab_file
 dataloader.train.dataset[0].data_prefix = data_prefix
@@ -48,9 +48,6 @@ train.evaluation.evaluator = LazyCall(PPLEvaluator)()
 
 train.evaluation.enabled = False
 train.evaluation.eval_iter = 30
-
-# oneflow-28
-train.rdma_enabled = False
 
 graph.auto_parallel.mainstem_algo = True
 graph.auto_parallel.prune_parallel_cast_ops = True

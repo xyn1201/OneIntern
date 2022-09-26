@@ -53,9 +53,6 @@ train.input_placement_device = "cpu"
 train.evaluation.enabled = False
 train.evaluation.eval_iter = 30
 
-# oneflow-28
-train.rdma_enabled = False
-
 graph.auto_parallel.mainstem_algo = True
 graph.auto_parallel.prune_parallel_cast_ops = True
 graph.auto_parallel.sbp_collector = False
