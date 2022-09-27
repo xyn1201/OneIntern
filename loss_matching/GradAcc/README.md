@@ -45,7 +45,7 @@ conda create -n master python=3.8 && conda activate master && python3-m pip inst
     ```
 - 运行
     ```bash
-    bash loss.sh "c4ce8fb" # 替换为测试commit
+    bash loss.sh "3d5e919" # 替换为测试commit
     bash resnet50_train.sh
     ```
 - 在loss_txt路径下保存有loss的数据，curve路径下有对齐的png图像，test_logs_loss路径下有训练日志
@@ -57,13 +57,15 @@ conda create -n master python=3.8 && conda activate master && python3-m pip inst
 把test_logs_loss路径下的数据上传至oss，修改`extract_libai_libai.py`中的oss路径名，运行 `python extract_libai_libai.py --compare-log ./test_logs_loss/master/ --test-log ./test_logs_loss/c4ce8fb/`
 - 注意：每次完整测试之前检查几个文件，libai/engine/trainer.py, libai/engine/default.py, draw_loss.py
 
+**上述训练过程可用`bash run_libai.sh "3d5e919"`替换，处理数据的过程见`OneAutoTest/libai/accuracy_verify/process_data.ipynb`**
+
 ### 跑发版测试
 - 拷贝 args_libai_bert.sh 和 args_libai_gpt2.sh
 - 运行 
     ```bash 
-    case.sh "3d5e919"
-    case.sh "master"
-    case.sh "faban"
+    bash case.sh "3d5e919"
+    bash case.sh "master"
+    bash case.sh "faban"
     python extract_libai_libai_libai.py --faban-log ./test_logs/faban/ --compare-log ./test_logs/master/ --test-log ./test_logs/3d5e919/ --oneflow-commit "3d5e919"
     ```
 

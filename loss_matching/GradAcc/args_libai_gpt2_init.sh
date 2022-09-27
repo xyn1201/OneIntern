@@ -44,6 +44,7 @@ echo LOG_FILENAME=$LOG_FILENAME
 mkdir -p $LOG_FILENAME
 
 source /home/xuyongning/miniconda3/bin/activate master
+pip install -e .
 
 # nsys
 #nsys profile --stats true --output ${LOG_FILENAME} \

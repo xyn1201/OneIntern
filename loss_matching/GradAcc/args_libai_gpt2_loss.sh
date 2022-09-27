@@ -19,7 +19,7 @@ USE_FP16=${8:-true}
 ACTIVATION_CHECKPOINT=${9:-false}
 MICRO_BATCH_SIZE=${10:-4}
 GLOBAL_BATCH_SIZE=${11:-4}
-ACC_COMMIT=${12:-"c4ce8fb"}
+ACC_COMMIT=${12:-"3d5e919"}
 NUM_LAYER=${13:-24}
 RUN_COMMIT=${14:-"master"}
 TRAIN_ITERS=${15:-100}
@@ -47,10 +47,12 @@ for TEST_COMMIT in "master" ${ACC_COMMIT}
 do
 if [ ${TEST_COMMIT} == ${ACC_COMMIT} ]; then
     source /home/xuyongning/miniconda3/bin/activate acc
+    pip install -e .
     sed -i "s#loss1.txt#loss_txt/${FILENAME}_loss_${TEST_COMMIT}.txt#g" draw_loss.py
     sed -i "s#loss1#${FILENAME}_loss_${TEST_COMMIT}#g" draw_loss.py
 else
     source /home/xuyongning/miniconda3/bin/activate master
+    pip install -e .
     sed -i "s#loss2.txt#loss_txt/${FILENAME}_loss_${TEST_COMMIT}.txt#g" draw_loss.py
     sed -i "s#loss2#${FILENAME}_loss_${TEST_COMMIT}#g" draw_loss.py
 fi

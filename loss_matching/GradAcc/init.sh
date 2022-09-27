@@ -1,4 +1,3 @@
-pip install -e .
 
 ## bert
 #  1n1g acc4        bert_nl24_nah16_hs1024_fp16_actrue_mp1_pp1_mb32_gb128_1n1g

@@ -11,17 +11,16 @@ DEVICE_NUM_PER_NODE=${2:-8}
 NODE_RANK=${3:-0}
 MASTER_ADDR=${4:-"127.0.0.1"}
 OFRECORD_PATH=${5:-"/dataset/imagenet/ofrecord"}
-TRAIN_BATCH_SIZE=${6:-40}
-TRAIN_GLOBAL_BATCH_SIZE=${7:-1280}
-EPOCH=${8:-50}
-USE_FP16=${9:-false}
-PYTHON_BIN=${10:-"python3"}
-RUN_TYPE=${11:-"ddp"} # graph+fp16
-DECODE_TYPE=${12:-"cpu"}
-PRINT_INTERVAL=${13:-100}
-DEBUG_AND_NCCL=${14:-false}
-NSYS_BIN=${15:-""}
-RUN_COMMIT=${16:-"master"}
+TRAIN_BATCH_SIZE=${6:-192}
+EPOCH=${7:-50}
+USE_FP16=${8:-false}
+PYTHON_BIN=${9:-"python3"}
+RUN_TYPE=${10:-"ddp"} # graph+fp16
+DECODE_TYPE=${11:-"cpu"}
+PRINT_INTERVAL=${12:-1}
+DEBUG_AND_NCCL=${13:-false}
+NSYS_BIN=${14:-""}
+RUN_COMMIT=${15:-"master"}
 
 
 SRC_DIR=$(realpath $(dirname $0)/..)
@@ -61,8 +60,7 @@ fi
 #export ONEFLOW_VM_WORKLOAD_ON_SCHEDULER_THREAD=1
 
 LEARNING_RATE=$(echo | awk "{print $NUM_NODES*$DEVICE_NUM_PER_NODE*$TRAIN_BATCH_SIZE/1000}")
-VAL_BATCH_SIZE=20
-VAL_GLOBAL_BATCH_SIZE=640
+VAL_BATCH_SIZE=50
 MOM=0.875
 OFRECORD_PART_NUM=256
 
@@ -99,9 +97,7 @@ CMD+="--lr ${LEARNING_RATE} "
 CMD+="--momentum ${MOM} "
 CMD+="--num-epochs ${EPOCH} "
 CMD+="--train-batch-size ${TRAIN_BATCH_SIZE} "
-CMD+="--train-global-batch-size ${TRAIN_GLOBAL_BATCH_SIZE} "
 CMD+="--val-batch-size ${VAL_BATCH_SIZE} "
-CMD+="--val-global-batch-size ${VAL_GLOBAL_BATCH_SIZE} "
 CMD+="--print-interval ${PRINT_INTERVAL} "
 CMD+="--exit-num ${EXIT_NUM} "
 #CMD+="--synthetic-data "
@@ -142,4 +138,3 @@ fi
 
 rm -rf ./log/$HOSTNAME
 echo "done"
-

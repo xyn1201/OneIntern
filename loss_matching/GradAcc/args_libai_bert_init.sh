@@ -43,6 +43,7 @@ LOG_FILENAME=$LOG_FOLDER/${TRAN_MODEL}_nl${NUM_LAYER}_nah16_hs1024_${AMP_OR}_ac$
 mkdir -p $LOG_FILENAME
 
 source /home/xuyongning/miniconda3/bin/activate master
+pip install -e .
 
 # nsys
 #nsys profile --stats true --output ${LOG_FILENAME} \
