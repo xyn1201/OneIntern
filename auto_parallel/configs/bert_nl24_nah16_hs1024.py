@@ -31,5 +31,5 @@ train.evaluation.enabled = False
 train.evaluation.eval_iter = 30
 
 graph.auto_parallel.mainstem_algo = True
-graph.auto_parallel.prune_parallel_cast_ops = True
+graph.auto_parallel.enable_auto_parallel_ignore_user_sbp_config = True
 graph.auto_parallel.sbp_collector = False
