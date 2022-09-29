@@ -36,7 +36,7 @@ fi
 # log
 #export CUDNN_LOGINFO_DBG=1
 #export CUDNN_LOGDEST_DBG=cudnn.log
-#export GLOG_v=3
+export GLOG_v=3
 #export ONEFLOW_DEBUG_MODE=1
 
 LOG_FILENAME=$LOG_FOLDER/${TRAN_MODEL}_tiny_patch4_window7_224_${AMP_OR}_ac${ACTIVATION_CHECKPOINT}_mp${MP}_pp${PP}_mb${MICRO_BATCH_SIZE}_gb${GLOBAL_BATCH_SIZE}_ap${AUTO_PARALLEL}_${NNODES}n${GPUS_PER_NODE}g_${RUN_TIME}
@@ -50,8 +50,6 @@ python3 -m oneflow.distributed.launch \
 tools/train_net.py \
 --config-file $CONFIG \
 graph.auto_parallel.enabled=$AUTO_PARALLEL \
-train.zero_optimization.enabled=True \
-train.zero_optimization.stage=2 \
 train.train_micro_batch_size=$MICRO_BATCH_SIZE \
 train.global_batch_size=$GLOBAL_BATCH_SIZE \
 train.dist.tensor_parallel_size=$MP \
