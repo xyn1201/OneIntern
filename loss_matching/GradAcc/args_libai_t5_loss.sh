@@ -15,8 +15,8 @@ MASTER_ADDR=${5:-"127.0.0.1"}
 MASTER_PORT=12345
 MP=${6:-1}
 PP=${7:-1}
-USE_FP16=${8:-"True"}
-ACTIVATION_CHECKPOINT=${9:-"False"}
+USE_FP16=${8:-true}
+ACTIVATION_CHECKPOINT=${9:-false}
 MICRO_BATCH_SIZE=${10:-4}
 GLOBAL_BATCH_SIZE=${11:-4}
 ACC_COMMIT=${12:-"3d5e919"}
@@ -62,6 +62,7 @@ sed -i "s#your_loss#${FILENAME}_loss_${TEST_COMMIT}#g" libai/engine/trainer.py
 RUN_TIME=$(date "+%Y%m%d_%H%M%S%N")
 LOG_FOLDER=test_logs_loss/${TEST_COMMIT}/${NNODES}n${GPUS_PER_NODE}g
 LOG_FILENAME=$LOG_FOLDER/${FILENAME}_${RUN_TIME}
+echo LOG_FILENAME=$LOG_FILENAME
 mkdir -p $LOG_FILENAME
 
 python3 -m oneflow --doctor
